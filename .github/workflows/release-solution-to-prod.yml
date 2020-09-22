@@ -1,4 +1,4 @@
-name: release-reening-solution
+name: release-solution-to-prod
 # prepare for releasing to prod:
 #   convert solution to managed (using a build PowerPlatform environment for the conversion)
 #   upload the solution to the GitHub artifacts and deploy to the PROD environment
@@ -41,7 +41,7 @@ jobs:
         environment-url: 'https://user9-build.crm.dynamics.com/'
         user-name: 'user9@wrkdevops.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: Covid19Screening
+        solution-name: ALMLab
         managed: true
         solution-output-file: out/ship/ALMLab.zip
 

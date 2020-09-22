@@ -43,7 +43,7 @@ jobs:
         solution-type: 'Unmanaged'
         overwrite-files: true
 
-    - name: branch-solution for Covid19Screening
+    - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0.1.7
       with:
         solution-folder: out/solutions/ALMLab
