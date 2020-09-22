@@ -1,0 +1,55 @@
+# GitHub workflow to generate managed solution (build artifact)
+name: convert-to-managed
+
+on:
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Pack solution
+      # uses: microsoft/powerplatform-actions/pack-solution@v0
+      uses: ./microsoft/powerplatform-actions/pack-solution
+      with:
+        solution-folder: 'solutions/ALMLab-staged'
+        solution-file: out/CI/solutions/ALMLab.zip
+        solution-type: Unmanaged
+
+    - name: Import solution as unmanaged to build env
+      # uses: microsoft/powerplatform-actions/import-solution@v0
+      uses: ./microsoft/powerplatform-actions/import-solution
+      with:
+        environment-url: '<BUILDENVIRONMENT'
+        user-name: '<USERNAME>'
+        password-secret: ${{ secrets.password }}
+        solution-file: 'out/CI/solutions/ALMLab.zip'
+        force-overwrite: true
+        publish-changes: true
+
+    - name: Export solution as managed
+      # uses: microsoft/powerplatform-actions/export-solution@v0
+      uses: ./microsoft/powerplatform-actions/export-solution
+      with:
+        environment-url: '<BUILDENVIRONMENT>'
+        user-name: '<USERNAME>'
+        password-secret: ${{ secrets.password }}
+        solution-name: ALMLab
+        managed: true
+        solution-output-file: out/ship/ALMLab.zip
+
+    - name: Upload the ready to ship solution to GH artifact store
+      uses: actions/upload-artifact@v2
+      with:
+        name: managedSolutions
+        path: out/ship/ALMLab.zip
