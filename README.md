@@ -1,7 +1,8 @@
 
 # Power Platform actions lab
 
-This project contains sample workflows that use GitHub Actions for Microsoft Power Platform. These workflows can be used to export solutions from a development environment and generate a build artifact, ready for release. 
+This project contains sample workflows that use the [GitHub Actions for Microsoft Power Platform](https://github.com/microsoft/powerplatform-actions).
+These workflows can be used to export solutions from a development environment and generate a build artifact, ready for release. 
 
 Learn more about the [GitHub Actions for Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/alm/devops-github-actions)
 
