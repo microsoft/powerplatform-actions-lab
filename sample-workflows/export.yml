@@ -1,11 +1,8 @@
 # GitHub workflow to generate export a solution from an environment and unpack it to a new branch
 name: export	
 	on:
-	push:
-	branches: [ main ]
-	pull_request:
-	branches: [ main ]
-	jobs:
+	workflow_dispatch:
+        jobs:
 	build:
 	runs-on: windows-latest
 	env:
