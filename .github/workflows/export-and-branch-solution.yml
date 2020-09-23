@@ -3,6 +3,7 @@ name: export-and-branch-solution
 #  unpack it and prepare, commit and push a git branch with the changes
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
