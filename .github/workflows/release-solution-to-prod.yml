@@ -20,14 +20,14 @@ jobs:
         lfs: true
 
     - name: Pack solution
-      uses: microsoft/powerplatform-actions/pack-solution@v0.1.7
+      uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
         solution-folder: solutions/ALMLab
         solution-file: out/solutions/ALMLab.zip
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
-      uses: microsoft/powerplatform-actions/import-solution@v0.1.7
+      uses: microsoft/powerplatform-actions/import-solution@v0
       with:
         environment-url: 'https://user9-build.crm.dynamics.com/'
         user-name: 'user9@wrkdevops.onmicrosoft.com'
@@ -37,7 +37,7 @@ jobs:
         publish-changes: true
 
     - name: Export solution as managed
-      uses: microsoft/powerplatform-actions/export-solution@v0.1.7
+      uses: microsoft/powerplatform-actions/export-solution@v0
       with:
         environment-url: 'https://user9-build.crm.dynamics.com/'
         user-name: 'user9@wrkdevops.onmicrosoft.com'
@@ -72,7 +72,7 @@ jobs:
     - run: get-childitem .\out\release\
 
     - name: Import solution to prod env
-      uses: microsoft/powerplatform-actions/import-solution@v0.1.7
+      uses: microsoft/powerplatform-actions/import-solution@v0
       with:
         environment-url: 'https://user9-prod.crm.dynamics.com/'
         user-name: 'user9@wrkdevops.onmicrosoft.com'
