@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="pfe.Mscrm.Form.pfe_insight.MainTab.MaxSize.0.CustomAction" Location="Mscrm.Form.pfe_insight.MainTab.Scaling._children" Sequence="10">
+      <CommandUIDefinition>
+        <MaxSize GroupId="pfe.Mscrm.Form.pfe_insight.MainTab.Monitoring" Id="pfe.Mscrm.Form.pfe_insight.MainTab.MaxSize.0" Sequence="10" Size="LargeLargeMedium" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="pfe.Mscrm.Form.pfe_insight.MainTab.Monitoring.CustomAction" Location="Mscrm.Form.pfe_insight.MainTab.Groups._children" Sequence="5">
+      <CommandUIDefinition>
+        <Group Command="Mscrm.Enabled" Id="pfe.Mscrm.Form.pfe_insight.MainTab.Monitoring" Sequence="5" Template="Mscrm.Templates.Flexible3">
+          <Controls Id="pfe.Mscrm.Form.pfe_insight.MainTab.Monitoring.Controls">
+            <Button Alt="$LocLabels:pfe.pfe_insight.Button2.Button.Alt" Command="pfe.pfe_insight.Command0.Command" Id="pfe.pfe_insight.Button2.Button" Image32by32="$webresource:ayw_/icons/appinsights32" Image16by16="$webresource:ayw_/icons/appinsights16" LabelText="$LocLabels:pfe.pfe_insight.Button2.Button.LabelText" Sequence="5" TemplateAlias="-" />
+          </Controls>
+        </Group>
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="pfe.pfe_insight.Command0.Command">
+      <EnableRules>
+        <EnableRule Id="pfe.pfe_insight.EnableRule0.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="test" Library="$webresource:ayw_/scripts/applicationinsights/tracktelemetry.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="pfe.pfe_insight.EnableRule0.EnableRule">
+        <CustomRule FunctionName="test" Library="$webresource:ayw_/scripts/applicationinsights/tracktelemetry.js" Default="true" InvertResult="false" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="pfe.pfe_insight.Button2.Button.Alt">
+      <Titles>
+        <Title description="Send Telemetry to Application Insights" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pfe.pfe_insight.Button2.Button.LabelText">
+      <Titles>
+        <Title description="Send Telemetry" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

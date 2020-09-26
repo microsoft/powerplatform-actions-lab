@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_pfe_insight" />
+  <EntityRelationship Name="lk_pfe_insight_createdby" />
+  <EntityRelationship Name="lk_pfe_insight_modifiedby" />
+  <EntityRelationship Name="owner_pfe_insight" />
+  <EntityRelationship Name="team_pfe_insight" />
+  <EntityRelationship Name="user_pfe_insight" />
+</EntityRelationships>

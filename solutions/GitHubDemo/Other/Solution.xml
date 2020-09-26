@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.1.0.22251" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>GitHubDemo</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="GitHubDemo" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>aliyoussefiworkshop</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Ali Youssefi Workshop" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>ayw</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>22177</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="pfe_insight" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required key="0" type="9" schemaName="pfe_type" displayName="Type" solution="Active" />
+        <Dependent key="1" type="2" schemaName="pfe_type" displayName="Type" parentSchemaName="pfe_insight" parentDisplayName="Insight" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="66" schemaName="pfe_D365.Pfe.PCF.Samples.TSWebAPI" displayName="pfe_D365.Pfe.PCF.Samples.TSWebAPI" solution="Active" />
+        <Dependent key="3" type="60" displayName="Custom Controls" parentDisplayName="Insight" id="{63cabfe9-9e9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="3" type="60" displayName="Custom Controls" parentDisplayName="Insight" id="{63cabfe9-9e9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="66" schemaName="pfe_D365.Pfe.PCF.Samples.TSWebAPI" displayName="pfe_D365.Pfe.PCF.Samples.TSWebAPI" solution="Active" />
+        <Dependent key="5" type="60" displayName=" Slow Loading Form" parentDisplayName="Insight" id="{dcf62310-9f9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="5" type="60" displayName=" Slow Loading Form" parentDisplayName="Insight" id="{dcf62310-9f9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="61" schemaName="pfe_/scripts/applicationinsights/performanceScenarios.js" displayName="pfe_/scripts/applicationinsights/performanceScenarios.js" solution="Active" />
+        <Dependent key="5" type="60" displayName=" Slow Loading Form" parentDisplayName="Insight" id="{dcf62310-9f9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="7" type="60" displayName="Insights Form" parentDisplayName="Insight" id="{35205ca0-3f4a-ea11-a812-000d3a546343}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="8" type="60" displayName="Unhandled Exception Form" parentDisplayName="Insight" id="{7fdccd2e-9f9a-ea11-a811-000d3a5466d8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="9" type="60" displayName=" XHR Form" parentDisplayName="Insight" id="{75aa2252-9f9a-ea11-a811-000d3a8a7593}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="10" type="61" schemaName="ayw_/icons/appinsights32" displayName="ayw_/icons/appinsights32" solution="Active" />
+        <Dependent key="11" type="50" schemaName="pfe_insight:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="12" type="61" schemaName="ayw_/icons/appinsights16" displayName="ayw_/icons/appinsights16" solution="Active" />
+        <Dependent key="11" type="50" schemaName="pfe_insight:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="61" schemaName="ayw_/scripts/applicationinsights/tracktelemetry.js" displayName="ayw_/scripts/applicationinsights/tracktelemetry.js" solution="Active" />
+        <Dependent key="11" type="50" schemaName="pfe_insight:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
