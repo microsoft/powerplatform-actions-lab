@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{dcf62310-9f9a-ea11-a811-000d3a5466d8}</formid>
+    <IntroducedVersion>2.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{4d410ef7-a5fe-43c9-bf0c-3c472c0ba37f}" IsUserDefined="1" labelid="{210d2e73-433e-4fcb-91b6-822fb0ff7842}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9bf3c14a-b1ae-49e7-b906-5b829ca64be3}" labelid="{ff0da551-4aec-4c56-833e-a18bb189bb3d}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{aa9e75dc-7aab-4a9c-acea-e3d63e95c649}" labelid="{0cff82ac-0868-42cc-8acc-a3b47d3383f3}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="pfe_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2ef644da-9d42-48e5-9192-8bef58b48140}" labelid="{8a2742b7-8a73-4f3b-bb68-5fb038b8bd7a}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="76b026e9-745d-478f-b8af-32dada03749a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{ecb747fa-31dc-4ff5-bd6e-07c853f85aba}">
+                  <labels>
+                    <label description="Application Insights Table" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{629096a0-8dec-43cb-9ab9-a4f94314e3cc}" showlabel="true" locklevel="0" labelid="{36f845d4-9349-454c-9227-cb79a12f3b5e}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="pfe_type" disabled="false" />
+                      </cell>
+                      <cell id="{41333fdf-dc33-481c-b3ef-10c17a9d4722}" showlabel="true" locklevel="0" labelid="{95030b68-39ce-4f34-bc7f-9f11ba7b0e36}">
+                        <labels>
+                          <label description="Message" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_message" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_message" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{fe182611-e492-4ae5-8fb4-c0c4b2ad42be}" showlabel="false" rowspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false" />
+                      </cell>
+                      <cell id="{aac3f8e2-0c90-4db4-b663-e4eac125aae1}" showlabel="true" locklevel="0" labelid="{f3efc61c-17d3-44ca-af7c-74effe8bd208}">
+                        <labels>
+                          <label description="Custom Dimensions" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_customdimensions" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_customdimensions" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{08b89095-5528-4879-adf9-b0b30bb93226}" showlabel="false">
+                        <labels>
+                          <label description="New QV control 1600889886888" languagecode="1033" />
+                        </labels>
+                        <control id="QuickviewControl1600889886888" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="ownerid" disabled="false">
+                          <parameters>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="systemuser"&gt;c68d6c09-d7a7-4959-8d0f-44b8cff9b452&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{34b05d82-0547-4706-ae99-59e297c42f7d}" showlabel="true" locklevel="0" labelid="{136f6801-9cc8-4a3f-ba4a-d38aa97ea5eb}">
+                        <labels>
+                          <label description="Custom Measurements" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_custommeasurements" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_custommeasurements" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{88fe678f-a79d-4f36-a647-7fabf6b3d067}" labelid="{d4b7a0c6-46a6-493e-9b59-d8d5a012d3d4}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{7e5c05e3-6b80-428c-8ecb-66900b1c5c23}" labelid="{ee01be78-4c15-4e1e-8d72-0d5b77c80d01}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+          <events>
+            <event name="tabstatechange" application="false" active="false">
+              <Handlers>
+                <Handler functionName="PerformSleep_Tab" libraryName="pfe_/scripts/applicationinsights/performanceScenarios.js" handlerUniqueId="{5579797e-b2e2-1746-8b26-08aa5500d887}" enabled="true" parameters="5000" passExecutionContext="false" />
+              </Handlers>
+            </event>
+          </events>
+        </tab>
+        <tab name="tab_2" id="fab8b39e-48fb-4cfd-a824-c623d66fe0ad" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{79009eec-0387-42cf-8d62-7c8f8141212f}" expanded="true">
+          <labels>
+            <label description="Second Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_1" id="d298852c-cf64-4685-ac88-67c8028c35fc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{af0a68bd-d39b-464c-8322-ff1f7c104593}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9e07e459-014e-c830-1ca2-672044a82096}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba616463-4337-5483-9444-907c4bad5ac1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="pfe_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9193cb9b-6d94-5046-c770-6d6b0e41ace4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Message" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_message" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="pfe_message" disabled="false" uniqueid="{eb44284e-79d4-947e-682a-0923a3d2e9c7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5cd58048-8ec7-a014-a3bd-6646b086ed0d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_2" id="83afcc4d-000b-4f25-8060-d8bbca5efe4b" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{ef218380-c24a-4cd7-83d4-819a861a8c65}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7ca64c29-4e78-ace1-1354-59934c971e82}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e2a7839-a774-7120-1b8c-e2c9285680e1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{75d56427-3aca-49cd-bb3b-4c12b1f092d0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{198b1652-3489-45b4-9def-0515b5ccbf38}" showlabel="false" labelid="{77922edb-ad46-47eb-98fe-1060ddea93d3}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{11632fca-3a9f-4ede-829c-f570ba674c04}" showlabel="false" labelid="{5297f465-4dd3-4c6c-a9aa-d90ca7512432}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ca83c5a9-10f8-4b3e-99f4-c6507b179572}" showlabel="false" labelid="{733f84a8-8c4d-46d4-9c0c-23e024ce0987}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{8a3b80dd-e53e-49d2-a3d7-e553d6f7bebd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2e49181c-9fdf-41a2-8e23-13d151d38ffb}" showlabel="false" labelid="{8a0da7cc-56d3-4487-90f5-1f102bffbd78}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9f52f349-561f-4040-9372-c934c2a3b3ec}" showlabel="false" labelid="{002ed665-9ddb-42d9-8d0b-4b4f322bcc07}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a2a779a2-66bc-4947-a39f-f5b95494e560}" showlabel="false" labelid="{73a75498-d079-4058-b319-52792cb00d7b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="ayw_/scripts/applicationinsights/tracktelemetry.js" libraryUniqueId="{75eb9e21-0234-74e5-dd4a-b64ba2b161b6}" />
+        <Library name="pfe_/scripts/applicationinsights/performanceScenarios.js" libraryUniqueId="{e696602a-9754-7739-2960-83220ec23600}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="captureTelemetry" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{583b6373-30e1-bb1b-eaed-e81127458a7c}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="uploadResourceTimings" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{9c83b58e-9740-3cde-11d6-972b71530007}" enabled="false" parameters="" passExecutionContext="true" />
+            <Handler functionName="testTrackException" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{bdce5426-8791-e9d1-487b-d15327679d85}" enabled="false" parameters="" passExecutionContext="false" />
+            <Handler functionName="PerformSleep_Load" libraryName="pfe_/scripts/applicationinsights/performanceScenarios.js" handlerUniqueId="{d15a4a72-cbb8-1168-eac7-32114e20767e}" enabled="true" parameters="5000" passExecutionContext="false" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="PerformSleep_Save" libraryName="pfe_/scripts/applicationinsights/performanceScenarios.js" handlerUniqueId="{d4615ae7-412b-2b83-9d71-83e777ee6286}" enabled="true" parameters="10000" passExecutionContext="false" />
+            <Handler functionName="DisplayTab" libraryName="pfe_/scripts/applicationinsights/performanceScenarios.js" handlerUniqueId="{07a246a8-8960-bbe1-0835-2059e2ab41d2}" enabled="true" parameters="&quot;tab_2&quot;" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions>
+        <controlDescription forControl="{eb44284e-79d4-947e-682a-0923a3d2e9c7}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>pfe_message</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>pfe_message</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pfe_D365.Pfe.PCF.Samples.TSWebAPI">
+            <parameters>
+              <stringProperty>pfe_message</stringProperty>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <DisplayConditions Order="3" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description=" Slow Loading Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This form is used to demo slow load times" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

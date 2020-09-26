@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{75aa2252-9f9a-ea11-a811-000d3a8a7593}</formid>
+    <IntroducedVersion>2.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{4d410ef7-a5fe-43c9-bf0c-3c472c0ba37f}" IsUserDefined="1" labelid="{ab130728-75bd-49ff-a3e5-cd91a628fffa}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9bf3c14a-b1ae-49e7-b906-5b829ca64be3}" labelid="{db0c1944-5ee4-45c4-ba8f-bd48bddc85ad}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{aa9e75dc-7aab-4a9c-acea-e3d63e95c649}" labelid="{62adac88-00d3-43e7-b80c-42a513ecf277}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="pfe_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2ef644da-9d42-48e5-9192-8bef58b48140}" labelid="{6e919506-0abd-4450-944a-e8d949846f13}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="76b026e9-745d-478f-b8af-32dada03749a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{895ab81a-7cc3-42d7-8c68-ae8bdc61802b}">
+                  <labels>
+                    <label description="Application Insights Table" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{629096a0-8dec-43cb-9ab9-a4f94314e3cc}" showlabel="true" locklevel="0" labelid="{3557277e-1d0b-4810-8aef-c3f78f36a591}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="pfe_type" disabled="false" />
+                      </cell>
+                      <cell id="{41333fdf-dc33-481c-b3ef-10c17a9d4722}" showlabel="true" locklevel="0" labelid="{b75c2435-e525-43ac-9269-cf9c33856211}">
+                        <labels>
+                          <label description="Message" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_message" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_message" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{1fbfc299-e2f0-40b9-bbb8-ecb9fac429bb}" labelid="{220dbdcb-3bbf-40db-9f77-988291b5393b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{aac3f8e2-0c90-4db4-b663-e4eac125aae1}" showlabel="true" locklevel="0" labelid="{654110f1-4c5c-4a15-86ec-4232aa8012eb}">
+                        <labels>
+                          <label description="Custom Dimensions" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_customdimensions" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_customdimensions" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{c1b36d44-a39b-4379-820d-8a2f03a22b8f}" labelid="{0fbba786-68e7-44e5-8637-4680169db393}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{34b05d82-0547-4706-ae99-59e297c42f7d}" showlabel="true" locklevel="0" labelid="{52e6eb2f-9a35-43d5-96b3-2d6c15ea248a}">
+                        <labels>
+                          <label description="Custom Measurements" languagecode="1033" />
+                        </labels>
+                        <control id="pfe_custommeasurements" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pfe_custommeasurements" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{88fe678f-a79d-4f36-a647-7fabf6b3d067}" labelid="{a5a186bc-4733-4e2f-9819-bd43e21103d8}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{7e5c05e3-6b80-428c-8ecb-66900b1c5c23}" labelid="{6358becf-58e2-42a4-a09b-66b55ee6140a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="fab8b39e-48fb-4cfd-a824-c623d66fe0ad" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{599a0cd6-fa34-43fa-b403-42e6d9d6e94e}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_1" id="d298852c-cf64-4685-ac88-67c8028c35fc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{5402f0a6-60f6-4499-a470-e2386374b6c7}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{9fcccf2a-f6d4-4bb0-a802-3a57083540cf}" labelid="{f2379a39-1f32-45d7-a6a9-87f57db8559b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_2" id="83afcc4d-000b-4f25-8060-d8bbca5efe4b" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{272963b7-3e49-4e90-a1e6-d16283e6337a}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{e7f2bc2a-6da9-4b55-9916-e088c828a926}" labelid="{2c04d839-b645-420d-bc9e-3e054e634fce}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{75d56427-3aca-49cd-bb3b-4c12b1f092d0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{198b1652-3489-45b4-9def-0515b5ccbf38}" showlabel="false" labelid="{437e66d7-c267-479f-8d98-797943ed65c3}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{11632fca-3a9f-4ede-829c-f570ba674c04}" showlabel="false" labelid="{cfdd84b4-f46f-42c2-b49b-c473f56572e5}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ca83c5a9-10f8-4b3e-99f4-c6507b179572}" showlabel="false" labelid="{8840c1ff-45af-45b6-b052-641bdc45d9b4}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{8a3b80dd-e53e-49d2-a3d7-e553d6f7bebd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2e49181c-9fdf-41a2-8e23-13d151d38ffb}" showlabel="false" labelid="{a7570bc8-fdee-4f14-ba54-328254b4fc59}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9f52f349-561f-4040-9372-c934c2a3b3ec}" showlabel="false" labelid="{0b723a32-29de-4c8d-b3e6-11d8ce0a1b30}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a2a779a2-66bc-4947-a39f-f5b95494e560}" showlabel="false" labelid="{a290a55d-cf03-47c8-81e6-1a4ab2f9ecab}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="ayw_/scripts/applicationinsights/tracktelemetry.js" libraryUniqueId="{75eb9e21-0234-74e5-dd4a-b64ba2b161b6}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="captureTelemetry" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{583b6373-30e1-bb1b-eaed-e81127458a7c}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="uploadResourceTimings" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{9c83b58e-9740-3cde-11d6-972b71530007}" enabled="false" parameters="" passExecutionContext="true" />
+            <Handler functionName="testTrackException" libraryName="ayw_/scripts/applicationinsights/tracktelemetry.js" handlerUniqueId="{bdce5426-8791-e9d1-487b-d15327679d85}" enabled="false" parameters="" passExecutionContext="false" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="5" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description=" XHR Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This form is used to demo multiple XHR calls" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
