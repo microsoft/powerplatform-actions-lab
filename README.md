@@ -11,6 +11,8 @@ In  the detailed [hands-on lab](https://github.com/microsoft/powerplatform-actio
 - Create a new solution that contains your app (module 1). 
 - Create a new repo and two GitHub workflows using GitHub actions for the Power Platform (module 2).
 
+Demo of lab available [here](https://youtu.be/Bk4KpE_6YtY) 
+
 If you are already familiar with the concept of multiple environments as well as how to use solutions to package your app, then you can safely skip the first two modules, and simply download and use the [sample ALMLab solution](https://github.com/microsoft/powerplatform-actions-lab/blob/main/solutions/ALMLab_1_0_0_1.zip) and jump straight to module 2. 
 
 Learn more about the [GitHub Actions for Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/alm/devops-github-actions)
