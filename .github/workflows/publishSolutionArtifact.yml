@@ -1,0 +1,61 @@
+name: export-and-branch-solution
+# Export solution from DEV environment
+#  unpack it and prepare, commit and push a git branch with the changes
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  export-from-dev:
+    runs-on: windows-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@v0
+      with:
+        environment-url: 'https://alyousse.crm.dynamics.com/'
+        user-name: 'alyousse@pfecrmonline.onmicrosoft.com'
+        password-secret: ${{ secrets.password }}
+
+    - name: export-solution action
+      uses: microsoft/powerplatform-actions/export-solution@v0
+      with:
+        environment-url: 'https://alyousse.crm.dynamics.com/'
+        user-name: 'alyousse@pfecrmonline.onmicrosoft.com'
+        password-secret: ${{ secrets.password }}
+        solution-name: GitHubDemo
+        solution-output-file: out/exported/GitHubDemo.zip
+
+    - name: unpack-solution action
+      uses: microsoft/powerplatform-actions/unpack-solution@v0
+      with:
+        solution-file: out/exported/GitHubDemo.zip
+        solution-folder: out/solutions/GitHubDemo
+        solution-type: 'Unmanaged'
+        overwrite-files: true
+
+    - name: branch-solution, prepare it for a PullRequest
+      uses: microsoft/powerplatform-actions/branch-solution@v0
+      with:
+        solution-folder: out/solutions/GitHubDemo
+        solution-target-folder: solutions/GitHubDemo
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allow-empty-commit: true
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: GitHubDemo.zip
+        # A file, directory or wildcard pattern that describes what to upload
+        path: out/exported
