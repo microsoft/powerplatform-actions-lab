@@ -36,22 +36,6 @@ jobs:
         solution-name: GitHubDemo
         solution-output-file: out/exported/GitHubDemo.zip
 
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: out/exported/GitHubDemo.zip
-        solution-folder: out/solutions/GitHubDemo
-        solution-type: 'Unmanaged'
-        overwrite-files: true
-
-    - name: branch-solution, prepare it for a PullRequest
-      uses: microsoft/powerplatform-actions/branch-solution@v0
-      with:
-        solution-folder: out/solutions/GitHubDemo
-        solution-target-folder: solutions/GitHubDemo
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allow-empty-commit: true
-
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
