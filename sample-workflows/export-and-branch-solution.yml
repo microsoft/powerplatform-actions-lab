@@ -29,7 +29,7 @@ jobs:
         environment-url: '<ENVIRONMENTURL>'
         user-name: '<USERNAME>'
         password-secret: ${{ secrets.password }}
-        solution-name: ALMLab
+        solution-name: Test
         solution-output-file: out/exported/ALMLab.zip
 
     - name: unpack-solution action
