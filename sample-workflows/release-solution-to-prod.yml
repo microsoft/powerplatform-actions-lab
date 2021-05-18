@@ -68,7 +68,6 @@ jobs:
       with:
         name: managedSolutions
         path: out/release/
-
     
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
