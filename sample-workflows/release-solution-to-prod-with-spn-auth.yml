@@ -14,13 +14,14 @@ env:
   PRODUCTION_ENVIRONMENT_URL: '<PRODENVIRONMENTURL>'
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
+#Change the solution parameters here
   SOLUTION_NAME: ALMLab
   SOLUTION_OUTPUT_FILE: out/ship/ALMLab.zip
   SOLUTION_FILE: out/solutions/ALMLab.zip
   SOLUTION_FOLDER: solutions/ALMLab
   SOLUTION_TARGET_FOLDER: solutions/ALMLab
   SOLUTION_RELEASE_PATH: out/release/
-  SOLUTION_RELEASE_FILE: out/release/ALMLab
+  SOLUTION_RELEASE_FILE: out/release/ALMLab.zip
 
 jobs:
   convert-to-managed:
