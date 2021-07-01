@@ -10,10 +10,10 @@ env:
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
   SOLUTION_NAME: ALMLab
-  SOLUTION_OUTPUT_FILE: out/exported/${{env.SOLUTION_NAME}}.zip
-  SOLUTION_FILE: out/exported/${{env.SOLUTION_NAME}}.zip
-  SOLUTION_FOLDER: out/solutions/${{env.SOLUTION_NAME}}
-  SOLUTION_TARGET_FOLDER: solutions/{{env.SOLUTION_NAME}}
+  SOLUTION_OUTPUT_FILE: out/exported/ALMLab.zip
+  SOLUTION_FILE: out/exported/ALMLab.zip
+  SOLUTION_FOLDER: out/solutions/ALMLab
+  SOLUTION_TARGET_FOLDER: solutions/ALMLab
 
 
 
