@@ -9,7 +9,7 @@ env:
   ENVIRONMENT_URL: '<ENVIRONMENTURL>'
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
-  #Change the solution and values
+#Change the solution paramters here
   SOLUTION_NAME: ALMLab
   SOLUTION_OUTPUT_FILE: out/exported/ALMLab.zip
   SOLUTION_FILE: out/exported/ALMLab.zip
