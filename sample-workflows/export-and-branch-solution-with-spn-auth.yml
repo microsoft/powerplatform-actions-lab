@@ -1,0 +1,65 @@
+name: export-and-branch-solution
+# Export solution from DEV environment
+#  unpack it and prepare, commit and push a git branch with the changes
+
+on:
+  workflow_dispatch:
+env:
+#edit your values here
+  ENVIRONMENT_URL: '<ENVIRONMENTURL>'
+  CLIENT_ID: '<APPID>'
+  TENANT_ID: '<TENANT ID>'
+  SOLUTION_NAME: ALMLab
+  SOLUTION_OUTPUT_FILE: out/exported/${{env.SOLUTION_NAME}}.zip
+  SOLUTION_FILE: out/exported/${{env.SOLUTION_NAME}}.zip
+  SOLUTION_FOLDER: out/solutions/${{env.SOLUTION_NAME}}
+  SOLUTION_TARGET_FOLDER: solutions/{{env.SOLUTION_NAME}}
+
+
+
+jobs:
+  export-from-dev:
+    runs-on: windows-latest
+    # or you can say runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@v0
+      with:
+        environment-url: ${{env.ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+
+
+    - name: export-solution action
+      uses: microsoft/powerplatform-actions/export-solution@v0
+      with:
+        environment-url: ${{env.ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+        solution-name: ${{env.SOLUTION_NAME}}
+        solution-output-file: ${{env.SOLUTION_OUTPUT_FILE}}
+
+    - name: unpack-solution action
+      uses: microsoft/powerplatform-actions/unpack-solution@v0
+      with:
+        solution-file: ${{env.SOLUTION_FILE}}
+        solution-folder: ${{env.SOLUTION_FOLDER}}
+        solution-type: 'Unmanaged'
+        overwrite-files: true
+
+    - name: branch-solution, prepare it for a PullRequest
+      uses: microsoft/powerplatform-actions/branch-solution@v0
+      with:
+        solution-folder: ${{env.SOLUTION_FOLDER}}
+        solution-target-folder: ${{env.SOLUTION_TARGET_FOLDER}}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allow-empty-commit: true

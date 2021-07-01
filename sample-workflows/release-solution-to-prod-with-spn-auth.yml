@@ -1,0 +1,98 @@
+name: release-solution-to-prod
+# prepare for releasing to prod:
+#   convert solution to managed (using a build PowerPlatform environment for the conversion)
+#   upload the solution to the GitHub artifacts and deploy to the PROD environment
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+env:
+#edit your values here
+  BUILD_ENVIRONMENT_URL: '<BUILDENVIRONMENTURL>'
+  PRODUCTION_ENVIRONMENT_URL: '<PRODENVIRONMENTURL>'
+  CLIENT_ID: '<APPID>'
+  TENANT_ID: '<TENANT ID>'
+  SOLUTION_NAME: ALMLab
+  SOLUTION_OUTPUT_FILE: out/ship/${{env.SOLUTION_NAME}}.zip
+  SOLUTION_FILE: out/solutions/${{env.SOLUTION_NAME}}.zip
+  SOLUTION_FOLDER: solutions/${{env.SOLUTION_NAME}}
+  SOLUTION_TARGET_FOLDER: solutions/{{env.SOLUTION_NAME}}
+  SOLUTION_RELEASE_PATH: out/release/
+  SOLUTION_RELEASE_FILE: out/release/${{SOLUTION_NAME}}
+
+jobs:
+  convert-to-managed:
+    runs-on: windows-latest
+    # or you can say runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Pack solution
+      uses: microsoft/powerplatform-actions/pack-solution@v0
+      with:
+        solution-folder: ${{env.SOLUTION_FOLDER}}
+        solution-file: ${{env.SOLUTION_FILE}}
+        solution-type: Unmanaged
+
+    - name: Import solution as unmanaged to build env
+      uses: microsoft/powerplatform-actions/import-solution@v0
+      with:
+        environment-url: ${{env.BUILD_ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+        solution-file: ${{env.SOLUTION_FILE}}
+        force-overwrite: true
+        publish-changes: true
+
+    - name: Export solution as managed
+      uses: microsoft/powerplatform-actions/export-solution@v0
+      with:
+        environment-url: ${{env.BUILD_ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+        solution-name: ${{env.SOLUTION_NAME}}
+        managed: true
+        solution-output-file: ${{SOLUTION_OUTPUT_FILE}}
+
+    - name: Upload the ready to ship solution to GH artifact store
+      uses: actions/upload-artifact@v2
+      with:
+        name: managedSolutions
+        path: ${{SOLUTION_OUTPUT_FILE}}
+
+  release-to-staging:
+    needs: [ convert-to-managed ]
+    runs-on: windows-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Fetch the ready to ship solution from GH artifact store
+      uses: actions/download-artifact@v2
+      with:
+        name: managedSolutions
+        path: ${{env.SOLUTION_RELEASE_PATH}}
+
+    - name: Import solution to prod env
+      uses: microsoft/powerplatform-actions/import-solution@v0
+      with:
+        environment-url: ${{env.PRODUCTION_ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+        solution-file: ${{env.SOLUTION_RELEASE_FILE}}
+        force-overwrite: true
+        publish-changes: true
