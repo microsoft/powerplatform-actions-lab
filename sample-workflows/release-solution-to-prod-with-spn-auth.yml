@@ -15,12 +15,12 @@ env:
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
   SOLUTION_NAME: ALMLab
-  SOLUTION_OUTPUT_FILE: out/ship/${{env.SOLUTION_NAME}}.zip
-  SOLUTION_FILE: out/solutions/${{env.SOLUTION_NAME}}.zip
-  SOLUTION_FOLDER: solutions/${{env.SOLUTION_NAME}}
-  SOLUTION_TARGET_FOLDER: solutions/{{env.SOLUTION_NAME}}
+  SOLUTION_OUTPUT_FILE: out/ship/ALMLab.zip
+  SOLUTION_FILE: out/solutions/ALMLab.zip
+  SOLUTION_FOLDER: solutions/ALMLab
+  SOLUTION_TARGET_FOLDER: solutions/ALMLab
   SOLUTION_RELEASE_PATH: out/release/
-  SOLUTION_RELEASE_FILE: out/release/${{SOLUTION_NAME}}
+  SOLUTION_RELEASE_FILE: out/release/ALMLab
 
 jobs:
   convert-to-managed:
