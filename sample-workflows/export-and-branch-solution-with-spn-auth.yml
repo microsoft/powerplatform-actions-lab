@@ -4,19 +4,29 @@ name: export-and-branch-solution
 
 on:
   workflow_dispatch:
+    inputs:
+      
+      solution_name:
+        description: 'name of the solution to worked on from Power Platform'
+        required: true
+        default: ALMLab
+      solution_exported_folder:
+        description: 'folder name for staging the exported solution'
+        required: true
+        default: out/exported/
+      solution_folder:
+        description: 'staging the unpacked solution folder before check-in'
+        required: true
+        default: out/solutions/
+      solution_target_folder: 
+       description: 'folder name to be created and checked in'
+       required: true
+       default: solutions/
 env:
 #edit your values here
   ENVIRONMENT_URL: '<ENVIRONMENTURL>'
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
-#Change the solution paramters here
-  SOLUTION_NAME: ALMLab
-  SOLUTION_OUTPUT_FILE: out/exported/ALMLab.zip
-  SOLUTION_FILE: out/exported/ALMLab.zip
-  SOLUTION_FOLDER: out/solutions/ALMLab
-  SOLUTION_TARGET_FOLDER: solutions/ALMLab
-
-
 
 jobs:
   export-from-dev:
@@ -46,21 +56,21 @@ jobs:
         app-id: ${{env.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
-        solution-name: ${{env.SOLUTION_NAME}}
-        solution-output-file: ${{env.SOLUTION_OUTPUT_FILE}}
+        solution-name: ${{ github.event.inputs.solution_name }}
+        solution-output-file: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
 
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: ${{env.SOLUTION_FILE}}
-        solution-folder: ${{env.SOLUTION_FOLDER}}
+        solution-file: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
+        solution-folder: ${{ github.event.inputs.solution_folder}}/${{ github.event.inputs.solution_name }}
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-        solution-folder: ${{env.SOLUTION_FOLDER}}
-        solution-target-folder: ${{env.SOLUTION_TARGET_FOLDER}}
+        solution-folder: ${{ github.event.inputs.solution_folder}}/${{ github.event.inputs.solution_name }}
+        solution-target-folder: ${{ github.event.inputs.solution_target_folder}}/${{ github.event.inputs.solution_name }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-empty-commit: true
