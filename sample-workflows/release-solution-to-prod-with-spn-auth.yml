@@ -109,6 +109,6 @@ jobs:
         app-id: ${{env.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
-        solution-file: ${{ github.event.inputs.solution_release_folder}}//${{ github.event.inputs.solution_name }}.zip
+        solution-file: ${{ github.event.inputs.solution_release_folder}}/${{ github.event.inputs.solution_name }}.zip
         force-overwrite: true
         publish-changes: true
