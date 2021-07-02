@@ -5,8 +5,37 @@ name: release-solution-to-prod
 
 on:
   workflow_dispatch:
+    inputs:
+      # Change this value
+      solution_name:
+        description: 'name of the solution to worked on from Power Platform'
+        required: true
+        default: ALMLab
+       #Do Not change these values
+      solution_shipping_folder:
+        description: 'folder name for staging the exported solution *do not change*'
+        required: true
+        default: out/ship/
+      solution_outbound_folder:
+        description: 'staging the unpacked solution folder before check-in *do not change*'
+        required: true
+        default: out/solutions/
+      solution_source_folder:
+       description: 'folder name to be created and checked in *do not change*'
+       required: true
+       default: solutions/
+      solution_release_folder:
+       description: 'folder where the released binaries are going to be hosted *do not change*'
+       required: true
+       default: out/release
   release:
     types: [created]
+
+env:
+#edit your values here
+  BUILD_ENVIRONMENT_URL: <BUILDENVIRONMENTURL>
+  PRODUCTION_ENVIRONMENT_URL: <PRODENVIRONMENTURL>
+  USERNAME: <USERNAME>
 
 jobs:
   convert-to-managed:
@@ -22,35 +51,35 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: solutions/ALMLab
-        solution-file: out/solutions/ALMLab.zip
+        solution-folder: ${{ github.event.inputs.solution_source_folder}}/${{ github.event.inputs.solution_name }}
+        solution-file: ${{ github.event.inputs.solution_outbound_folder}}/${{ github.event.inputs.solution_name }}.zip
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: '<BUILDENVIRONMENTURL>'
-        user-name: '<USERNAME>'
+        environment-url: ${{env.BUILD_ENVIRONMENT_URL}}
+        user-name: ${{env.USERNAME}}
         password-secret: ${{ secrets.password }}
-        solution-file: out/solutions/ALMLab.zip
+        solution-file: ${{ github.event.inputs.solution_outbound_folder}}/${{ github.event.inputs.solution_name }}.zip
         force-overwrite: true
         publish-changes: true
 
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: '<BUILDENVIRONMENTURL>'
-        user-name: '<USERNAME>'
+        environment-url: ${{env.BUILD_ENVIRONMENT_URL}}
+        user-name: ${{env.USERNAME}}
         password-secret: ${{ secrets.password }}
-        solution-name: ALMLab
+        solution-name: ${{ github.event.inputs.solution_name }}
         managed: true
-        solution-output-file: out/ship/ALMLab.zip
+        solution-output-file: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/ALMLab.zip
+        path: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}.zip
 
   release-to-staging:
     needs: [ convert-to-managed ]
@@ -68,13 +97,13 @@ jobs:
       with:
         name: managedSolutions
         path: out/release/
-    
+
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: '<PRODUCTIONENVIRONMENTURL>'
-        user-name: '<USERNAME>'
+        environment-url: ${{env.PRODUCTION_ENVIRONMENT_URL}}
+        user-name: ${{env.USERNAME}}
         password-secret: ${{ secrets.password }}
-        solution-file: out/release/ALMLab.zip
+        solution-file: ${{ github.event.inputs.solution_release_folder}}/${{ github.event.inputs.solution_name }}.zip
         force-overwrite: true
         publish-changes: true
