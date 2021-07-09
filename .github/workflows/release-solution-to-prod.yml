@@ -22,8 +22,8 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: solutions/ALMLab
-        solution-file: out/solutions/ALMLab.zip
+        solution-folder: solutions/Budget
+        solution-file: out/solutions/Budget.zip
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
@@ -32,7 +32,7 @@ jobs:
         environment-url: 'https://org8ea6daa9.crm6.dynamics.com/'
         user-name: 'andrew.j@engageau.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/solutions/ALMLab.zip
+        solution-file: out/solutions/Budget.zip
         force-overwrite: true
         publish-changes: true
 
@@ -42,15 +42,15 @@ jobs:
         environment-url: 'https://org8ea6daa9.crm6.dynamics.com/'
         user-name: 'andrew.j@engageau.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: ALMLab
+        solution-name: Budget
         managed: true
-        solution-output-file: out/ship/ALMLab.zip
+        solution-output-file: out/ship/Budget.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/ALMLab.zip
+        path: out/ship/Budget.zip
 
   release-to-staging:
     needs: [ convert-to-managed ]
@@ -75,6 +75,6 @@ jobs:
         environment-url: 'https://orgd65accf0.crm6.dynamics.com/'
         user-name: 'andrew.j@engageau.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/release/ALMLab.zip
+        solution-file: out/release/Budget.zip
         force-overwrite: true
         publish-changes: true
