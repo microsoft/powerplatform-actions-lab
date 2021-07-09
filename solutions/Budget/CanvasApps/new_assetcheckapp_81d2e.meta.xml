@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>new_assetcheckapp_81d2e</Name>
+  <AppVersion>2021-07-09T03:19:41Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.21064.25.0</CreatedByClientVersion>
+  <MinClientVersion>3.21064.25.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1024","primaryDeviceHeight":"768","sienaVersion":"ece17db9-a61d-4596-b02a-9342663f14fb","deviceCapabilities":"","supportsPortrait":"false","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.21064.25","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(0, 176, 240, 1)</BackgroundColor>
+  <DisplayName>Asset Check App</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"e0c8e504-1c04-497b-b5c9-a5183f570559":{"id":"/providers/microsoft.powerapps/apis/shared_excel","displayName":"Excel","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1482/1.0.1482.2463/excel/icon.png","dataSources":["Categories","Products","Reviews","Assets","Filterby"],"dependencies":["3472014f-0bbf-4841-aa06-39220793f88a"],"dependents":[],"parameterHints":{"3472014f-0bbf-4841-aa06-39220793f88a":{"value":"fileSource"}},"parameterHintsV2":{"fileSource":{"value":"3472014f-0bbf-4841-aa06-39220793f88a"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"b!M_vMurLj4kmW56bnORii7-gLdjKQJqpNthYXhg6Vm9AN0bIlb9aYQbgFn0FhMr2c.01ROXTHJOZQ45OMX3U2JCLCESZLYHE2SCN":{"dataSources":{"Categories":{"tableName":"Categories"},"Products":{"tableName":"Products"},"Reviews":{"tableName":"Reviews"},"Assets":{"tableName":"Assets"},"Filterby":{"tableName":"Filterby"}}}},"apiTier":"Standard"},"3472014f-0bbf-4841-aa06-39220793f88a":{"id":"/providers/microsoft.powerapps/apis/shared_onedriveforbusiness","displayName":"OneDrive for Business","iconUri":"https://connectoricons-prod.azureedge.net/depfeife/special-train/1.0.1489.2478/onedriveforbusiness/icon.png","dataSources":[],"dependencies":[],"dependents":["e0c8e504-1c04-497b-b5c9-a5183f570559"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/new_assetcheckapp_81d2e_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/new_assetcheckapp_81d2e_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
