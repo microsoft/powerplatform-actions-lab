@@ -9,9 +9,9 @@
     <Version>1.0.0.0</Version>
     <Managed>0</Managed>
     <Publisher>
-      <UniqueName>DefaultPublisherorgd65accf0</UniqueName>
+      <UniqueName>DefaultPublisherorg8ea6daa9</UniqueName>
       <LocalizedNames>
-        <LocalizedName description="Default Publisher for orgd65accf0" languagecode="1033" />
+        <LocalizedName description="Default Publisher for org8ea6daa9" languagecode="1033" />
       </LocalizedNames>
       <Descriptions>
         <Description description="Default publisher for this organization" languagecode="1033" />
@@ -80,7 +80,7 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="300" schemaName="new_assetcheckout_208bc" behavior="0" />
+      <RootComponent type="300" schemaName="new_assetcheckapp_81d2e" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>
