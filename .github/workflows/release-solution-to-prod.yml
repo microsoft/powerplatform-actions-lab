@@ -29,7 +29,7 @@ jobs:
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://org8afc7726.crm.dynamics.com/'
+        environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-file: out/solutions/Ghosh.zip
@@ -39,7 +39,7 @@ jobs:
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://org8afc7726.crm.dynamics.com/'
+        environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-name: Ghosh
