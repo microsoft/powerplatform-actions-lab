@@ -39,8 +39,8 @@ jobs:
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: out/exported/ALMLab.zip
-        solution-folder: out/solutions/ALMLab
+        solution-file: out/exported/DevOps1.zip
+        solution-folder: out/solutions/DevOps1
         solution-type: 'Unmanaged'
         overwrite-files: true
 
