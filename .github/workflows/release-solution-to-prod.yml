@@ -22,8 +22,8 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: solutions/DevOps1
-        solution-file: out/solutions/DevOps1.zip
+        solution-folder: solutions/Ghosh
+        solution-file: out/solutions/Ghosh.zip
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
@@ -32,7 +32,7 @@ jobs:
         environment-url: 'https://org8afc7726.crm.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/solutions/DevOps1.zip
+        solution-file: out/solutions/Ghosh.zip
         force-overwrite: true
         publish-changes: true
 
@@ -42,15 +42,15 @@ jobs:
         environment-url: 'https://org8afc7726.crm.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: DevOps1
+        solution-name: Ghosh
         managed: true
-        solution-output-file: out/ship/DevOps1.zip
+        solution-output-file: out/ship/Ghosh.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/DevOps1.zip
+        path: out/ship/Ghosh.zip
 
   release-to-staging:
     needs: [ convert-to-managed ]
