@@ -29,7 +29,7 @@ jobs:
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
+        environment-url: 'https://org8afc7726.crm.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-file: out/solutions/Ghosh.zip
@@ -39,7 +39,7 @@ jobs:
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
+        environment-url: 'https://org8afc7726.crm.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-name: Ghosh
@@ -53,7 +53,7 @@ jobs:
         path: out/ship/Ghosh.zip
 
   release-to-staging:
-    needs: [ convert-to-Unmanaged ]
+    needs: [ convert-to-managed ]
     runs-on: windows-latest
     env:
       RUNNER_DEBUG: 1
@@ -66,7 +66,7 @@ jobs:
     - name: Fetch the ready to ship solution from GH artifact store
       uses: actions/download-artifact@v2
       with:
-        name: UnmanagedSolutions
+        name: managedSolutions
         path: out/release/
 
     - name: Import solution to prod env
@@ -75,6 +75,6 @@ jobs:
         environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/release/DevOps1.zip
+        solution-file: out/release/Ghosh.zip
         force-overwrite: true
         publish-changes: true
