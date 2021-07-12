@@ -53,7 +53,7 @@ jobs:
         path: out/ship/Ghosh.zip
 
   release-to-staging:
-    needs: [ convert-to-managed ]
+    needs: [ convert-to-Unmanaged ]
     runs-on: windows-latest
     env:
       RUNNER_DEBUG: 1
@@ -66,7 +66,7 @@ jobs:
     - name: Fetch the ready to ship solution from GH artifact store
       uses: actions/download-artifact@v2
       with:
-        name: managedSolutions
+        name: UnmanagedSolutions
         path: out/release/
 
     - name: Import solution to prod env
