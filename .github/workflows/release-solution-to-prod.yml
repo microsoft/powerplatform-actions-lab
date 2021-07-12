@@ -19,13 +19,6 @@ jobs:
       with:
         lfs: true
 
-    - name: Pack solution
-      uses: microsoft/powerplatform-actions/pack-solution@v0
-      with:
-        solution-folder: solutions/Ghosh
-        solution-file: out/solutions/Ghosh.zip
-        solution-type: Unmanaged
-
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
