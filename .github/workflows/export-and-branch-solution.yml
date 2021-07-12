@@ -1,4 +1,4 @@
-name: export-and-branch-solution
+name: Export-and-branch-solution
 # Export solution from DEV environment
 #  unpack it and prepare, commit and push a git branch with the changes
 
@@ -20,14 +20,14 @@ jobs:
       with:
         lfs: true
 
-    - name: who-am-i action
+    - name: Who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
         environment-url: 'https://org8afc7726.crm.dynamics.com/'
         user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
 
-    - name: export-solution action
+    - name: Export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
         environment-url: 'https://org8afc7726.crm.dynamics.com/'
@@ -36,7 +36,7 @@ jobs:
         solution-name: Ghosh
         solution-output-file: out/exported/Ghosh.zip
 
-    - name: unpack-solution action
+    - name: Un-pack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
         solution-file: out/exported/Ghosh.zip
@@ -44,7 +44,7 @@ jobs:
         solution-type: 'Unmanaged'
         overwrite-files: true
 
-    - name: branch-solution, prepare it for a PullRequest
+    - name: Branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
         solution-folder: out/solutions/Ghosh
