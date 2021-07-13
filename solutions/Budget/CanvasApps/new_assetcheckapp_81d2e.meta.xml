@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>new_assetcheckapp_81d2e</Name>
-  <AppVersion>2021-07-09T03:19:41Z</AppVersion>
+  <AppVersion>2021-07-09T03:43:40Z</AppVersion>
   <Status>Ready</Status>
   <CreatedByClientVersion>3.21064.25.0</CreatedByClientVersion>
   <MinClientVersion>3.21064.25.0</MinClientVersion>
@@ -10,9 +10,9 @@
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>rgba(0, 176, 240, 1)</BackgroundColor>
   <DisplayName>Asset Check App</DisplayName>
-  <Description xsi:nil="true"></Description>
-  <CommitMessage xsi:nil="true"></CommitMessage>
-  <Publisher xsi:nil="true"></Publisher>
+  <Description></Description>
+  <CommitMessage></CommitMessage>
+  <Publisher></Publisher>
   <AuthorizationReferences>[]</AuthorizationReferences>
   <ConnectionReferences>{"e0c8e504-1c04-497b-b5c9-a5183f570559":{"id":"/providers/microsoft.powerapps/apis/shared_excel","displayName":"Excel","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1482/1.0.1482.2463/excel/icon.png","dataSources":["Categories","Products","Reviews","Assets","Filterby"],"dependencies":["3472014f-0bbf-4841-aa06-39220793f88a"],"dependents":[],"parameterHints":{"3472014f-0bbf-4841-aa06-39220793f88a":{"value":"fileSource"}},"parameterHintsV2":{"fileSource":{"value":"3472014f-0bbf-4841-aa06-39220793f88a"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"b!M_vMurLj4kmW56bnORii7-gLdjKQJqpNthYXhg6Vm9AN0bIlb9aYQbgFn0FhMr2c.01ROXTHJOZQ45OMX3U2JCLCESZLYHE2SCN":{"dataSources":{"Categories":{"tableName":"Categories"},"Products":{"tableName":"Products"},"Reviews":{"tableName":"Reviews"},"Assets":{"tableName":"Assets"},"Filterby":{"tableName":"Filterby"}}}},"apiTier":"Standard"},"3472014f-0bbf-4841-aa06-39220793f88a":{"id":"/providers/microsoft.powerapps/apis/shared_onedriveforbusiness","displayName":"OneDrive for Business","iconUri":"https://connectoricons-prod.azureedge.net/depfeife/special-train/1.0.1489.2478/onedriveforbusiness/icon.png","dataSources":[],"dependencies":[],"dependents":["e0c8e504-1c04-497b-b5c9-a5183f570559"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"}}</ConnectionReferences>
   <DatabaseReferences>{}</DatabaseReferences>
