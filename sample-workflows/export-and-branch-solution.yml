@@ -26,8 +26,8 @@ on:
 
 env:
 #edit your values here
-  ENVIRONMENT_URL: <ENVIRONMENTURL>
-  USERNAME: <USERNAME>
+  ENVIRONMENT_URL: https://org8afc7726.crm.dynamics.com/
+  USERNAME: admin@M365x639218.onmicrosoft.com
 
 
 jobs:
