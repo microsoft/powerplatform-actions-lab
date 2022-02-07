@@ -1,12 +1,12 @@
 
 # Power Platform actions lab
 
-This project contains sample workflows that use the [GitHub Actions for Microsoft Power Platform (preview)](https://github.com/microsoft/powerplatform-actions).
+This project contains sample workflows that use the [GitHub Actions for Microsoft Power Platform](https://github.com/microsoft/powerplatform-actions).
 These workflows illustrate how you can:
 - Export a solution from a development environment.
 - Generate a build artifact (managed solution) and import into a production environment.
 
-In  the detailed [hands-on lab](https://github.com/microsoft/powerplatform-actions-lab/blob/main/PowerActionsLab.zip), you can learn more about:
+In  the detailed [hands-on lab](https://docs.microsoft.com/en-us/power-platform/alm/tutorials/github-actions-start), you can learn more about:
 - Setting up environments (module 0).
 - Create a new solution that contains your app (module 1). 
 - Create a new repo and two GitHub workflows using GitHub actions for the Power Platform (module 2).
