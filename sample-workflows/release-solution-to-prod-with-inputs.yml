@@ -1,52 +1,50 @@
-name: release-solution-to-prod-with-inputs
-# prepare for releasing to prod:
-#   convert solution to managed (using a build PowerPlatform environment for the conversion)
-#   upload the solution to the GitHub artifacts and deploy to the PROD environment
+name: release-solution-to-prod-reusable
+# Reusable workflow
+# convert solution to managed (using a build PowerPlatform environment for the conversion)
+# upload the solution to the GitHub artifacts and deploy to the PROD environment
 on:
   workflow_call:
     inputs: 
       #Do Not change these values
-      solution_name:        
+      solution_name:
+        description: 'The solution name.'
         type: string
         default: ALMLab       
       solution_shipping_folder:
-        description: 'folder name for staging the exported solution *do not change*'
-        required: false
+        description: 'folder name for staging the exported solution *do not change*'        
         type: string
         default: out/ship/
       solution_outbound_folder:
         description: 'staging the unpacked solution folder before check-in *do not change*'
-        required: false
         type: string
         default: out/solutions/
       solution_source_folder: 
        description: 'folder name to be created and checked in *do not change*'
-       required: false
        type: string
        default: solutions/
       solution_release_folder:
        description: 'folder where the released binaries are going to be hosted *do not change*'
-       required: false
        type: string
        default: out/release
       BUILD_ENVIRONMENT_URL:
-        description: 'BUILD ENV URL'
+        description: 'Build environment url.'
         type: string
         required: true      
       PRODUCTION_ENVIRONMENT_URL: 
-        description: 'PRODUCTION ENV URL'
+        description: 'Production environment url.'
         type: string
         required: true
       CLIENT_ID: 
-        description: 'CLIEND ID VALUE'
+        description: 'The client id'
         type: string
         required: true
       TENANT_ID: 
-        description: 'Tenant ID Value'
+        description: 'The tenant id'
         type: string
         required: true
     secrets:
       envSecret:
+        description: 'The secret value for authentication using SPN'
         required: true
 
 jobs:
