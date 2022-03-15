@@ -30,19 +30,19 @@ on:
        type: string
        default: out/release
       BUILD_ENVIRONMENT_URL:
-        description: 'environment url: https://marcelbuild.crm.dynamics.com'
+        description: 'BUILD ENV URL'
         type: string
         required: true      
       PRODUCTION_ENVIRONMENT_URL: 
-        description: 'https://marcelprod.crm.dynamics.com'
+        description: 'PRODUCTION ENV URL'
         type: string
         required: true
       CLIENT_ID: 
-        description: 'f6d88eaf-8e50-4b1f-93f2-b3af56880603'
+        description: 'CLIEND ID VALUE'
         type: string
         required: true
       TENANT_ID: 
-        description: 'ec6b17bb-11d0-4195-abd0-521c69a5d1fd'
+        description: 'Tenant ID Value'
         type: string
         required: true
     secrets:
