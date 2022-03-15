@@ -6,6 +6,8 @@ on:
   workflow_call:
     inputs: 
       #Do Not change these values
+      #Values are set by the caller
+      #caller sample: release-action-call.ymnl
       solution_name:
         description: 'The solution name.'
         type: string
