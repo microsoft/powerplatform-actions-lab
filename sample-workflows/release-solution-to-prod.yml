@@ -49,7 +49,7 @@ jobs:
         lfs: true
 
     - name: Pack solution
-      uses: microsoft/powerplatform-actions/pack-solution@0.4.0
+      uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
         solution-folder: ${{ github.event.inputs.solution_source_folder}}/${{ github.event.inputs.solution_name }}
         solution-file: ${{ github.event.inputs.solution_outbound_folder}}/${{ github.event.inputs.solution_name }}.zip
@@ -66,7 +66,7 @@ jobs:
         publish-changes: true
 
     - name: Export solution as managed
-      uses: microsoft/powerplatform-actions/export-solution@0.4.0
+      uses: microsoft/powerplatform-actions/export-solution@v0
       with:
         environment-url: ${{env.BUILD_ENVIRONMENT_URL}}
         user-name: ${{env.USERNAME}}
@@ -99,7 +99,7 @@ jobs:
         path: out/release/
 
     - name: Import solution to prod env
-      uses: microsoft/powerplatform-actions/import-solution@0.4.0
+      uses: microsoft/powerplatform-actions/import-solution@v0
       with:
         environment-url: ${{env.PRODUCTION_ENVIRONMENT_URL}}
         user-name: ${{env.USERNAME}}
