@@ -73,13 +73,13 @@ jobs:
         password-secret: ${{ secrets.password }}
         solution-name: ${{ github.event.inputs.solution_name }}
         managed: true
-        solution-output-file: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}.zip
+        solution-output-file: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}2.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}.zip
+        path: ${{ github.event.inputs.solution_shipping_folder}}/${{ github.event.inputs.solution_name }}2.zip
 
   release-to-staging:
     needs: [ convert-to-managed ]
