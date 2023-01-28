@@ -9,20 +9,20 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: MixedRealityWorkshop
+        default: ALMLab
        #Do Not change these values
       solution_exported_folder:
         description: 'folder name for staging the exported solution *do not change*'
         required: true
-        default: out/exported/
+        default: /out
       solution_folder:
         description: 'staging the unpacked solution folder before check-in *do not change*'
         required: true
-        default: out/solution/
+        default: /solution
       solution_target_folder: 
        description: 'folder name to be created and checked in *do not change*'
        required: true
-       default: solution/
+       default: solution
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://contososales.crm.dynamics.com/'
@@ -37,7 +37,7 @@ jobs:
       RUNNER_DEBUG: 1
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         lfs: true
 
@@ -48,10 +48,8 @@ jobs:
         app-id: ${{env.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
-    - name: cleanup staging area
-      run: |
-        Remove-Item -Recurse ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
-      shell: pwsh
+        
+    
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
@@ -71,11 +69,12 @@ jobs:
         solution-type: 'Unmanaged'
         overwrite-files: true
         
-        
     - name: Commit changes
       run: |
+        cp -r ${{ github.event.inputs.solution_folder}}/${{ github.event.inputs.solution_name }} ./${{ github.event.inputs.solution_folder}}/${{ github.event.inputs.solution_name }} 
         git config --global user.email "no-reply@github.com"
         git config --global user.name "GitHub Actions"
+        git checkout main
         git add --all 
         git commit -m "Updates from the dev environment"
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
