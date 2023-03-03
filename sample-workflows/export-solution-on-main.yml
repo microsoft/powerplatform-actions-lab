@@ -28,7 +28,8 @@ env:
   ENVIRONMENT_URL: '<URL OF YOUR DEV ENVIRONMENT>'
   CLIENT_ID: '<TYPE YOUR APPLICATION ID HERE>'
   TENANT_ID: '<TYPE YOUR TENANT ID HERE>'
-
+permissions:
+  contents: write
 jobs:
   export-from-dev:
     runs-on: windows-latest
