@@ -29,6 +29,8 @@ env:
   ENVIRONMENT_URL: <ENVIRONMENTURL>
   USERNAME: <USERNAME>
 
+permissions:
+  contents: write
 
 jobs:
   export-from-dev:
