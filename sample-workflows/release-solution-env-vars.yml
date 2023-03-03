@@ -23,7 +23,9 @@ env:
   solution_outbound_folder: 'solutions/<SolutionName>/bin/Debug'
   solution_source_folder: 'solutions/'
   solution_release_folder: 'out/release'
-  
+
+permissions:
+  contents: write
 
 jobs:
   convert-to-managed:
