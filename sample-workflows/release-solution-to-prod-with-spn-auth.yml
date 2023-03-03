@@ -39,6 +39,9 @@ env:
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
 
+permissions:
+  contents: write
+
 jobs:
   convert-to-managed:
     runs-on: windows-latest
