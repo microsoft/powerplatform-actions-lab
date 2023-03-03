@@ -8,6 +8,8 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: write
 jobs:
   convert-to-managed:
     runs-on: windows-latest
