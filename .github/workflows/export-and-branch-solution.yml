@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   export-from-dev:
     runs-on: windows-latest
