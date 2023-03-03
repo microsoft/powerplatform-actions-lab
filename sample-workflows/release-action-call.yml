@@ -5,7 +5,8 @@ name: Release action
 on:
   release:
       types: [created]        
-
+permissions:
+  contents: write
 jobs:
   Release-solution-ALMLab:
     uses: ./.github/workflows/release-solution-with-inputs.yml
