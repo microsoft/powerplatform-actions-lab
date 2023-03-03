@@ -37,6 +37,8 @@ env:
   PRODUCTION_ENVIRONMENT_URL: <PRODENVIRONMENTURL>
   USERNAME: <USERNAME>
 
+permissions:
+  contents: write
 jobs:
   convert-to-managed:
     runs-on: windows-latest
