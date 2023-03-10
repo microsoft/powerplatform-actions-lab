@@ -15,6 +15,11 @@ on:
      description: service principal client id
      required: true
      default: [client id]
+     
+     user_id:
+     description: AAD object id for the user
+     required: true 
+     default: [AAD object id]
    
  #Do Not change these values
       
@@ -48,7 +53,7 @@ jobs:
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{secrets.TENANT_ID}}
         environment: 'https://${{ github.event.inputs.env_name}}Dev.dynamics.com'
-        user: ${{ github.event.inputs.client_id }}
+        user: ${{ github.event.inputs.user_id }}
         role: System Administrator
         
     - name: Create Test Environment
@@ -68,7 +73,7 @@ jobs:
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{secrets.TENANT_ID}}
         environment: 'https://${{ github.event.inputs.env_name}}Test.crm.dynamics.com'
-        user: ${{ github.event.inputs.client_id }}
+        user: ${{ github.event.inputs.user_id }}
         role: System Administrator
         
         
@@ -89,5 +94,5 @@ jobs:
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{secrets.TENANT_ID}}
         environment: 'https://${{ github.event.inputs.env_name}}Prod.crm.dynamics.com'
-        user: ${{ github.event.inputs.client_id }}
+        user: ${{ github.event.inputs.user_id }}
         role: System Administrator
