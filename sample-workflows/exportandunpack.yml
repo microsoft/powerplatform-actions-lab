@@ -1,0 +1,140 @@
+name: Export unpack and commit the solution
+run-name: Getting ${{ github.event.inputs.solution_name }} solution from environment ${{ github.event.inputs.environment_url }} environment and committing
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: "name of the Solution in Dataverse environment"
+        required: true
+        default: yoursolutionname
+      # environment_id:
+      #   description: "GUID of your Dataverse environment"
+      #   required: true
+      #   default: "GUID-OF-YOUR-ENVIRONMENT"
+      environment_url:
+        description: "http endpoint of your Dataverse environment"
+        required: true
+        default: "https://[your-env].crm.dynamics.com"
+      source_branch:
+        description: "source branch"
+        required: true
+        default: main
+      branch_to_create:
+        description: "branch to create"
+        required: false
+      commit_message:
+        description: "message to provide for the commit"
+        required: true
+      allow_empty_commit:
+        description: "allow an empty commit"
+        required: true
+        default: 'false'
+permissions:
+  contents: write
+jobs:
+  export-unpack-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - if: ${{ false }} # this will never run, but will force powerplatform-actions to download
+        name: Who Am I
+        uses: microsoft/powerplatform-actions/who-am-i@latest
+        with:
+          app-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.POWERPLATFORMSPN }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          environment-url: ${{ github.event.inputs.environment_url}}
+
+      - name: create or checkout git branch
+        if: github.event.inputs.branch_to_create != ''
+        run: |
+          $branchToFind = "${{ github.event.inputs.branch_to_create }}"
+          $branches = git branch -a
+          if ([System.String]::Join("",$branches).Contains($branchToFind)) {
+            echo "checking out $branchToFind"
+            git checkout  $branchToFind
+            git pull
+          }
+          else {
+            git init
+            git checkout -b ${{ github.event.inputs.branch_to_create }} ${{ github.event.inputs.source_branch }}
+          }
+      # We need to use pac directly.
+      # So we set the path to pac that ships with the Actions
+      - name: set-pac-path
+        uses: ./.github/actions/set-pac-path
+
+      # Runs a set of commands using the runners shell
+      - name: export-solution action
+        uses: microsoft/powerplatform-actions/export-solution@v0
+        with:
+            environment-url: ${{ github.event.inputs.environment_url}}
+            app-id: ${{secrets.CLIENT_ID}}
+            client-secret: ${{ secrets.PowerPlatformSPN }}
+            tenant-id: ${{secrets.TENANT_ID}}
+            solution-name: ${{ github.event.inputs.solution_name }}
+            solution-output-file: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_unmanaged.zip
+            overwrite: true
+
+      - name: unpack-solution action
+        uses: microsoft/powerplatform-actions/unpack-solution@v0
+        with:
+          solution-file: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_unmanaged.zip
+          solution-folder: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}
+          solution-type: 'Unmanaged'
+          process-canvas-apps: true
+          overwrite-files: true
+          
+      - name: export-managed-solution
+        uses: microsoft/powerplatform-actions/export-solution@v0
+        with:
+            environment-url: ${{ github.event.inputs.environment_url}}
+            app-id: ${{secrets.CLIENT_ID}}
+            client-secret: ${{ secrets.PowerPlatformSPN }}
+            tenant-id: ${{secrets.TENANT_ID}}
+            solution-name: ${{ github.event.inputs.solution_name }}
+            solution-output-file: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_managed.zip
+            overwrite: true
+            managed: true
+      #- name: sync or clone solution
+        #shell: pwsh
+        #run: |
+          #$solutionName = "${{ github.event.inputs.solution_name }}"
+          #pac auth create --applicationId ${{ secrets.CLIENT_ID }} --clientSecret ${{ secrets.POWERPLATFORMSPN }} --tenant ${{ secrets.TENANT_ID }} --url ${{ github.event.inputs.environment_url}}
+          #$cdsprojExists = Test-Path "$solutionName/$solutionName.cdsproj"
+          #if ($cdsprojExists) {
+           # echo "syncing solution..."
+            #cd $solutionName
+            #pac solution sync --async --processCanvasApps --packagetype unmanaged
+            #cd ..
+          #}
+          #else {
+           # echo "cloning solution..."
+            #pac solution clone --name $solutionName --async --processCanvasApps --packagetype unmanaged
+          #}
+      - name: commit changes
+        shell: pwsh
+        run: |
+          rm -rf ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_unmanaged.zip
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>" 
+          git pull 
+          git add --all
+          $allowEmptyCommit = [System.Convert]::ToBoolean("${{ github.event.inputs.allow_empty_commit }}")
+          if ($allowEmptyCommit) {
+            git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
+          }
+          else {
+            git pull 
+            git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
+          }
+      - name: push to ${{ github.event.inputs.source_branch }}
+        if: github.event.inputs.branch_to_create == ''
+        run: |
+          git push origin main
+      - name: push to ${{ github.event.inputs.branch_to_create }}
+        if: github.event.inputs.branch_to_create != ''
+        run: |
+          git push --set-upstream origin ${{ github.event.inputs.branch_to_create }}

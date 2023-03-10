@@ -1,0 +1,56 @@
+name: Deploy Umanaged Application
+run-name: Packing ${{ github.event.inputs.solution_name }} for ${{ github.event.inputs.environment_url }} environment
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: "name of the Solution"
+        required: true
+        default: yoursolutionname
+      # environment_id:
+      #   description: "GUID of your Dataverse environment"
+      #   required: true
+      #   default: "GUID-OF-YOUR-ENVIRONMENT"
+      environment_url:
+        description: "http endpoint of your Dataverse environment"
+        required: true
+        default: "https://[your-env].crm.dynamics.com"
+      #solution_source_folder:
+       # description: "Location of the solution files"
+        #requried: true
+        #default: .
+      #solution_outbound_folder:
+       # description: "solution outbound folder"
+        #required: true
+        #default: out/stage
+jobs:
+    pack-umanaged-solution-import:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+        env:
+          RUNNER_DEBUG: 1
+      
+       
+      - name: Pack the solution
+        uses: microsoft/powerplatform-actions/pack-solution@v0
+        with:
+          solution-folder: ${{ github.event.repository.name}}/${{ github.event.inputs.solution_name }}
+          solution-file: ${{ github.event.repository.name}}/${{ github.event.inputs.solution_name }}.zip
+          solution-type: Unmanaged
+    
+      - name: Import solution as unmanaged to build env
+        uses: microsoft/powerplatform-actions/import-solution@v0
+        with:
+          environment-url: ${{github.event.inputs.environment_url}}
+          app-id: ${{secrets.CLIENT_ID}}
+          client-secret: ${{ secrets.PowerPlatformSPN }}
+          tenant-id: ${{secrets.TENANT_ID}}
+          solution-file: ${{ github.event.repository.name}}/${{ github.event.inputs.solution_name }}.zip
+          force-overwrite: true
+          publish-changes: true
+    
+    
+    

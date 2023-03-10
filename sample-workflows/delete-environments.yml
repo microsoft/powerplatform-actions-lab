@@ -1,0 +1,61 @@
+name: Delete Envs Dev Test and Prod
+# clean up the environment for the next demo
+#  clean up environment tasks for QA and Prod 
+
+on:
+  workflow_dispatch:
+    inputs:
+        dev_env: 
+          description: 'url for the dev environment'
+          type: string
+          default: https://LumenDemoDev.crm.dynamics.com
+        
+        test_env:
+          description: 'url for the test environment'
+          type: string
+          default: https://LumenDemoTest.crm.dynamics.com
+        
+        prod_env:
+          description: 'url for the prod environment'
+          type: string
+          default: https://LumenDemoProd.crm.dynamics.com
+        
+    
+ #Do Not change these values
+      
+
+jobs:
+  Delete-Environments:
+    runs-on: ubuntu-latest
+    # or you can say runs-on: windows-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        lfs: true
+        
+    - name: Delete Dev Environment
+      uses: microsoft/powerplatform-actions/delete-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment-url: ${{ inputs.dev_env }}
+        
+    - name: Delete Test Environment
+      uses: microsoft/powerplatform-actions/delete-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment-url: ${{ inputs.test_env }}
+        
+    - name: Delete Production Environment
+      uses: microsoft/powerplatform-actions/delete-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment-url: ${{ inputs.prod_env }}

@@ -1,0 +1,67 @@
+name: Rollback version and deploy solution
+run-name: Rolling back ${{ github.event.inputs.solution_name }} solution  to commit ${{github.event.inputs.commit_number }} to environment ${{ github.event.inputs.environment_url }} environment and committing
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: "name of the Solution in Dataverse environment"
+        required: true
+        default: yoursolutionname
+      # environment_id:
+      #   description: "GUID of your Dataverse environment"
+      #   required: true
+      #   default: "GUID-OF-YOUR-ENVIRONMENT"
+      environment_url:
+        description: "http endpoint of your Dataverse environment"
+        required: true
+        default: "https://[your-env].crm.dynamics.com"
+      commit_number:
+        description: Rolling back to commit
+        required: true
+        default: "[commit number]"
+      #commit_message:
+       #description: "message to provide for the commit"
+        #required: true
+      #allow_empty_commit:
+        #description: "allow an empty commit"
+        #required: true
+        #default: 'false'
+permissions:
+  contents: write
+jobs:
+  rollback-redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - if: ${{ false }} # this will never run, but will force powerplatform-actions to download
+        name: Who Am I
+        uses: microsoft/powerplatform-actions/who-am-i@latest
+        with:
+          app-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.POWERPLATFORMSPN }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          environment-url: ${{ github.event.inputs.environment_url}}
+
+      - name: rollback commit
+        #if: github.event.inputs.branch_to_create != ''
+        run: |
+        
+          git pull
+          git reset ${{ github.event.inputs.commit_number }}
+          
+          
+      - name: import-rolledback-managed-solution
+        uses: microsoft/powerplatform-actions/import-solution@v0
+        with:
+            environment-url: ${{ github.event.inputs.environment_url}}
+            app-id: ${{secrets.CLIENT_ID}}
+            client-secret: ${{ secrets.PowerPlatformSPN }}
+            tenant-id: ${{secrets.TENANT_ID}}
+            solution-file: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_managed.zip
+            force-overwrite: true
+            skip-dependency-check: true
+            run-asynchronously: true
+            managed: true
+      

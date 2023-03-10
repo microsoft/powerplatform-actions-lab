@@ -1,0 +1,30 @@
+#comment
+name: set-pac-path
+
+description: "add pac cli to path so we can use it directly"
+
+runs:
+  using: "composite"
+  steps:
+    # hack, but necessary until GitHub Actions for Power Platform support all pac commands
+    - if: ${{ false }} # this will never run, but will force powerplatform-actions to download
+      name: force-pac-download
+      uses: microsoft/powerplatform-actions/unpack-solution@latest
+      with:
+        solution-file: fake.zip
+        solution-folder: fake
+
+    - if: ${{ always() }}
+      id: get-pac-path
+      name: get-pac-path
+      shell: pwsh
+      run: |
+        $actionsPath = "${{ runner.temp }}".Replace("_temp","_actions")
+        if ($env:RUNNER_OS -eq "Windows") {
+          $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac\tools\pac.exe')}
+        }
+        else {
+          $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac_linux/tools/pac')}
+        }
+        $pacPath = $array[0].Directory.FullName
+        "$pacPath" >> $env:GITHUB_PATH

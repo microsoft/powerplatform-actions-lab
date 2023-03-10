@@ -1,0 +1,82 @@
+name: Create Dev Test and Prod Environments
+# clean up the environment for the next demo
+#  clean up environment tasks for QA and Prod 
+
+on:
+  workflow_dispatch:
+   
+ #Do Not change these values
+      
+
+jobs:
+  Create-Environments:
+    runs-on: ubuntu-latest
+    # or you can say runs-on: windows-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        lfs: true
+        
+    - name: Create Developer Environment
+      uses: microsoft/powerplatform-actions/create-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        name: LumenDemoDev
+        type: Developer
+        domain: LumenDemoDev
+    
+    - name: assign-user to developer environment
+      uses:  microsoft/powerplatform-actions/assign-user@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment: 'https://LumenDemoDev.crm.dynamics.com'
+        user: 877f5204-30a4-41eb-b445-687ee9d3aee2
+        role: System Administrator
+        
+    - name: Create Test Environment
+      uses: microsoft/powerplatform-actions/create-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        name: LumenDemoTest
+        type: Sandbox
+        domain: LumenDemoTest
+
+    - name: assign-user to test environment
+      uses:  microsoft/powerplatform-actions/assign-user@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment: 'https://LumenDemoTest.crm.dynamics.com'
+        user: 877f5204-30a4-41eb-b445-687ee9d3aee2
+        role: Basic User
+        
+        
+    - name: Create Production Environment
+      uses: microsoft/powerplatform-actions/create-environment@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        name: LumenDemoProd
+        type: Sandbox
+        domain: LumenDemoProd
+
+    - name: assign-user to Prod environment
+      uses:  microsoft/powerplatform-actions/assign-user@v0
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment: 'https://LumenDemoProd.crm.dynamics.com'
+        user: 877f5204-30a4-41eb-b445-687ee9d3aee2
+        role: Basic User
