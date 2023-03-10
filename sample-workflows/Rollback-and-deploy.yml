@@ -52,6 +52,15 @@ jobs:
           git reset ${{ github.event.inputs.commit_number }}
           
           
+      - name: delete managed solution in production
+        uses: microsoft/powerplatform-actions/delete-solution@v0
+        with:
+            environment-url: ${{ github.event.inputs.environment_url}}
+            app-id: ${{secrets.CLIENT_ID}}
+            client-secret: ${{ secrets.PowerPlatformSPN }}
+            tenant-id: ${{secrets.TENANT_ID}}
+            solution-name: ${{ github.event.inputs.solution_name }}
+          
       - name: import-rolledback-managed-solution
         uses: microsoft/powerplatform-actions/import-solution@v0
         with:
@@ -64,4 +73,3 @@ jobs:
             skip-dependency-check: true
             run-asynchronously: true
             managed: true
-      
