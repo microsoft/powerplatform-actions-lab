@@ -8,20 +8,20 @@ on:
         dev_env: 
           description: 'url for the dev environment'
           type: string
-          default: https://LumenDemoDev.crm.dynamics.com
+          default: https://[hostname]Dev.crm.dynamics.com
         
         test_env:
           description: 'url for the test environment'
           type: string
-          default: https://LumenDemoTest.crm.dynamics.com
+          default: https://[hostname]Test.crm.dynamics.com
         
         prod_env:
           description: 'url for the prod environment'
           type: string
-          default: https://LumenDemoProd.crm.dynamics.com
+          default: https://[hostname]Prod.crm.dynamics.com
         
     
- #Do Not change these values
+ 
       
 
 jobs:
