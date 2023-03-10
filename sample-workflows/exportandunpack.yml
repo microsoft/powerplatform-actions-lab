@@ -63,8 +63,7 @@ jobs:
           }
       # We need to use pac directly.
       # So we set the path to pac that ships with the Actions
-      - name: set-pac-path
-        uses: ./.github/actions/set-pac-path
+     
 
       # Runs a set of commands using the runners shell
       - name: export-solution action
@@ -98,22 +97,7 @@ jobs:
             solution-output-file: ${{ github.event.repository.name }}/${{ github.event.inputs.solution_name }}_managed.zip
             overwrite: true
             managed: true
-      #- name: sync or clone solution
-        #shell: pwsh
-        #run: |
-          #$solutionName = "${{ github.event.inputs.solution_name }}"
-          #pac auth create --applicationId ${{ secrets.CLIENT_ID }} --clientSecret ${{ secrets.POWERPLATFORMSPN }} --tenant ${{ secrets.TENANT_ID }} --url ${{ github.event.inputs.environment_url}}
-          #$cdsprojExists = Test-Path "$solutionName/$solutionName.cdsproj"
-          #if ($cdsprojExists) {
-           # echo "syncing solution..."
-            #cd $solutionName
-            #pac solution sync --async --processCanvasApps --packagetype unmanaged
-            #cd ..
-          #}
-          #else {
-           # echo "cloning solution..."
-            #pac solution clone --name $solutionName --async --processCanvasApps --packagetype unmanaged
-          #}
+      
       - name: commit changes
         shell: pwsh
         run: |
