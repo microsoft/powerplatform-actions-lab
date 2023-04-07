@@ -1,0 +1,23 @@
+name: Release action
+# Call the reusable workflow release-solution-with-inputs.yml
+# Release your solution to prod when you create a new release.
+
+on:
+  release:
+      types: [created]        
+permissions:
+  contents: write
+jobs:
+  Release-solution-GitHubActionsLab:
+    uses: ./.github/workflows/release-solution-with-githubvars.yml
+    with:
+      #You can specify the solution name here
+      solution_name: GitHubActionsLab
+      #Update your values here
+      BUILD_ENVIRONMENT_URL: <your build server url> 
+      PRODUCTION_ENVIRONMENT_URL: <your prod server url>
+      CLIENT_ID: ------app id------
+      TENANT_ID: -------tenant-id 
+      
+    secrets:
+      envSecret: ${{ secrets.PowerPlatformSPN }}
