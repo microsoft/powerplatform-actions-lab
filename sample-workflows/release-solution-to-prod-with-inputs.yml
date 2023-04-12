@@ -88,7 +88,7 @@ jobs:
         tenant-id: ${{inputs.TENANT_ID}}
         solution-name: ${{ inputs.solution_name }}
         managed: true
-        solution-output-file: ${{ inputs.solution_shipping_folder}}/${{ inputs.solution_name }}.zip
+        solution-output-file: ${{ inputs.solution_shipping_folder}}/${{ inputs.solution_name }}_managed.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
