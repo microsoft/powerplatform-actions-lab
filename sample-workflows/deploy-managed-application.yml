@@ -33,7 +33,7 @@ jobs:
         env:
           RUNNER_DEBUG: 1
       
-      - name: Import solution as unmanaged to build env
+      - name: Import solution as managed to build env
         uses: microsoft/powerplatform-actions/import-solution@v0
         with:
           environment-url: ${{github.event.inputs.environment_url}}
