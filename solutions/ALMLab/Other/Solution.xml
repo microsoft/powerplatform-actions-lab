@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.21949" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.21064.144" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
-    <UniqueName>ALMLab</UniqueName>
+    <UniqueName>GitHubDemo</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="ALM Lab" languagecode="1033" />
+      <LocalizedName description="GitHubDemo" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
     <Version>1.0.0.0</Version>
     <Managed>0</Managed>
     <Publisher>
-      <UniqueName>user9</UniqueName>
+      <UniqueName>Avanade</UniqueName>
       <LocalizedNames>
-        <LocalizedName description="user9" languagecode="1033" />
+        <LocalizedName description="Avanade" languagecode="1033" />
       </LocalizedNames>
       <Descriptions />
       <EMailAddress xsi:nil="true"></EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
-      <CustomizationPrefix>user9</CustomizationPrefix>
-      <CustomizationOptionValuePrefix>84688</CustomizationOptionValuePrefix>
+      <CustomizationPrefix>avn</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>10000</CustomizationOptionValuePrefix>
       <Addresses>
         <Address>
           <AddressNumber>1</AddressNumber>
@@ -77,9 +77,7 @@
         </Address>
       </Addresses>
     </Publisher>
-    <RootComponents>
-      <RootComponent type="1" schemaName="user9_timeoffrequest" behavior="0" />
-    </RootComponents>
+    <RootComponents />
     <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>
