@@ -1,4 +1,4 @@
-name: release-solution-to-prod
+name: Release-solution-to-prod
 # prepare for releasing to prod:
 #   convert solution to managed (using a build PowerPlatform environment for the conversion)
 #   upload the solution to the GitHub artifacts and deploy to the PROD environment
@@ -20,39 +20,39 @@ jobs:
     - uses: actions/checkout@v2
       with:
         lfs: true
-
+        
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: solutions/ALMLab
-        solution-file: out/solutions/ALMLab.zip
+        solution-folder: solutions/Ghosh
+        solution-file: out/solutions/Ghosh.zip
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://user9-build.crm.dynamics.com/'
-        user-name: 'user9@wrkdevops.onmicrosoft.com'
+        environment-url: 'https://org8afc7726.crm.dynamics.com/'
+        user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/solutions/ALMLab.zip
+        solution-file: out/solutions/Ghosh.zip
         force-overwrite: true
         publish-changes: true
 
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://user9-build.crm.dynamics.com/'
-        user-name: 'user9@wrkdevops.onmicrosoft.com'
+        environment-url: 'https://org8afc7726.crm.dynamics.com/'
+        user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: ALMLab
+        solution-name: Ghosh
         managed: true
-        solution-output-file: out/ship/ALMLab.zip
+        solution-output-file: out/ship/Ghosh.zip
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/ALMLab.zip
+        path: out/ship/Ghosh.zip
 
   release-to-staging:
     needs: [ convert-to-managed ]
@@ -74,9 +74,9 @@ jobs:
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://user9-prod.crm.dynamics.com/'
-        user-name: 'user9@wrkdevops.onmicrosoft.com'
+        environment-url: 'https://orgd161aeeb.crm4.dynamics.com/'
+        user-name: 'admin@M365x639218.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-file: out/release/ALMLab.zip
+        solution-file: out/release/Ghosh.zip
         force-overwrite: true
         publish-changes: true
