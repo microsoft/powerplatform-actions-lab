@@ -26,31 +26,31 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
-        environment-url: 'https://user9-dev.crm.dynamics.com/'
-        user-name: 'user9@wrkdevops.onmicrosoft.com'
+        environment-url: 'https://orgd946f96f.crm4.dynamics.com/'
+        user-name: 'farid.kasambula@kmlabb.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://user9-dev.crm.dynamics.com/'
-        user-name: 'user9@wrkdevops.onmicrosoft.com'
+        environment-url: 'https://orgd946f96f.crm4.dynamics.com/'
+        user-name: 'farid.kasambula@kmlabb.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: ALMLab
-        solution-output-file: out/exported/ALMLab.zip
+        solution-name: MaxSIevert
+        solution-output-file: out/exported/MaxSIevert.zip
 
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: out/exported/ALMLab.zip
-        solution-folder: out/solutions/ALMLab
+        solution-file: out/exported/MaxSIevert.zip
+        solution-folder: out/solutions/MaxSIevert
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-        solution-folder: out/solutions/ALMLab
-        solution-target-folder: solutions/ALMLab
+        solution-folder: out/solutions/MaxSIevert
+        solution-target-folder: solutions/MaxSIevert
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-empty-commit: true
