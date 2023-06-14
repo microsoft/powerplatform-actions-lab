@@ -35,7 +35,7 @@ jobs:
       with:
         environment-url: 'https://orgd946f96f.crm4.dynamics.com/'
         user-name: 'farid.kasambula@kmlabb.onmicrosoft.com'
-        password-secret: ${{ secrets.password }}
+        password-secret: I6-8Q~NXUUTex3y1JUIFr33Q_SNKJZIsyQUXScst
         solution-name: MaxSIevert
         solution-output-file: out/exported/MaxSIevert.zip
 
