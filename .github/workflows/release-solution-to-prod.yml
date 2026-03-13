@@ -7,7 +7,10 @@ on:
   workflow_dispatch:
   release:
     types: [created]
-
+env:
+  ENVIRONMENT_URL: 'https://org24eaa0e8.crm.dynamics.com'
+  CLIENT_ID: ${{ vars.POWER_PLATFORM_CLIENT_ID }}
+  TENANT_ID: ${{ vars.POWER_PLATFORM_TENANT_ID }}
 permissions:
   contents: write
 jobs:
@@ -31,7 +34,7 @@ jobs:
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://user9-build.crm.dynamics.com/'
+        environment-url: ${{env.ENVIRONMENT_URL}}
         user-name: 'user9@wrkdevops.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-file: out/solutions/ALMLab.zip
@@ -41,7 +44,7 @@ jobs:
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://user9-build.crm.dynamics.com/'
+        environment-url: ${{env.ENVIRONMENT_URL}}
         user-name: 'user9@wrkdevops.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
         solution-name: ALMLab
