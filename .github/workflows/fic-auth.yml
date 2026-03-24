@@ -1,0 +1,15 @@
+name: fic-auth
+
+on:
+  workflow_dispatch:
+
+jobs:
+  who-am-i:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Power Platform Tools
+      uses: microsoft/powerplatform-actions/actions-install@v1
+      with:
+        pac-version-override: 2.4.1
