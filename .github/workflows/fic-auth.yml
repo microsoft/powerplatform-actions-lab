@@ -1,15 +1,28 @@
+# https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure
 name: fic-auth
 
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   who-am-i:
 
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      id-token: write # Grant permissions to the OIDC endpoint for federation
+      contents: read
+      
     steps:
     - name: Install Power Platform Tools
       uses: microsoft/powerplatform-actions/actions-install@v1
       with:
         pac-version-override: 2.4.1
+
+    - name: WhoAmI
+      uses: microsoft/powerplatform-actions/who-am-i@v1
+      with:
+        environment-url: https://orgcf4371e7.crm.dynamics.com/
+        app-id: c07cb3c2-1a49-4358-84be-74c1c8521b23
+        tenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
